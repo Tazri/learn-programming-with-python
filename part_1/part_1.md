@@ -22,3 +22,12 @@ Table of Index
 1. [Chapter 8 : Work With String](./chapter_8/chapter_8.md)
 1. [Chapter 9 : Various Type of Data Structure](./chapter_9/chapter_9.md)
 1. [Chapter 10 : Some Fun Program](./chapter_10/chapter_10.md)
+
+<br>
+
+**Here finish the part 1. If You wan to see another part then click below the link to go home readme file.**
+
+<br />
+
+[< Go back home to see another part](./../README.md)
+----------------------------------------------------
