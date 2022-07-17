@@ -11,5 +11,5 @@ Here all part of this book :
 ----------------------------
 
 1. [Part 1: Basic Programming.](./part_1/part_1.md)
-1. [Part 2: Object Oriented Programming.](./) not complete :(
+1. [Part 2: Object Oriented Programming.](./part_2/part_2.md)
 1. [Part 3: Data Structure and Algorithm.](./) not complete :(

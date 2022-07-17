@@ -25,7 +25,7 @@ Table of Index
 
 <br>
 
-**Here finish the part 1. If You wan to see another part then click below the link to go home readme file.**
+**Here finish the part 1. If You want to see another part then click below the link to go home readme file.**
 
 <br />
 
