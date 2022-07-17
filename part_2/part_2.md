@@ -2,7 +2,7 @@
 ![Basic Programming](./../asset/badges/Python-Basic-blue.svg) 
 
 
-Learn Programming by Python, Tamim Shahriar Subeen
+Learn Programming by Python 2nd Part, Tamim Shahriar Subeen
 ==================================================
 
 This is the note of Secound part of **Tamim Shahriar Subeen** books on python. Where discuss about basic programming. Here I compete all the book and documented it here. Also I code every single of code in the book. 
