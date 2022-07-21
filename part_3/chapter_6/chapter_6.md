@@ -61,6 +61,7 @@ Books name :  Nimikh Pane
 Here all problem about stack structure : 
 1. [First Bracket is Balanced.](./problems/balanced_first_bracket.py)
 1. [Brackets are Balanaced](./problems/balance_multiple_bracket.py)
+1. [Fun Game](./problems/fun_game.py)
 
 <hr />
 <br />
@@ -123,6 +124,11 @@ Erwin is ok done.
 levi is ok done.
 Reiner is ok done.
 ```
+
+**Here all problem about queue data structure :**
+
+1. [Fun Game](./problems/fun_game.py)
+1. [stack and queue](./problems/stack_and_queue.py)
 
 <hr />
 <br />
@@ -308,3 +314,12 @@ Hello atra
 [ Queue is Empty!!! ]
 0
 ```
+
+**Here all problem sove with circular queue :**
+
+1. [stack and queue](./problems/stack_and_queue.py)
+
+<hr />
+<br />
+
+[< Go Back](./../part_3.md)
