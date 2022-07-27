@@ -41,18 +41,22 @@ def traverse_pre_order(_root):
 
 # pre-order traverse binary tree in iterative way
 def traverse_pre_order_iteravite(_root):
-    node = _root;
+    # create root stack
+    root_stack = [_root];
 
-    while node :
-        print(node);
+    while root_stack:
+        # get root from stack and print
+        current_root = root_stack.pop();
+        print(current_root);
 
-        # left node
-        if node.left :
-            node = node.left;
+        # if right root exist then append it to root stack
+        if current_root.right :
+            root_stack.append(current_root.right);
         
-        # right node 
-        if node.right :
-            node = node.right;
+        # if left root exist then append it to root stack
+        if current_root.left :
+            root_stack.append(current_root.left);
+
 
 def create_tree():
     '''
@@ -64,6 +68,8 @@ def create_tree():
         1   6     8
            / \   / \
           5  10 3   4
+    
+    output will : 2 7 1 6 5 10 9 8 3 4
     '''
     # creating 0 and 1 level nodes
     two = TreeNode(2);
@@ -114,3 +120,7 @@ if __name__ == "__main__" :
     # pre_order traverse in recursive
     print(">>> Traverse Pre Order in Recursive Way <<<");
     traverse_pre_order(root);
+
+    # pre_roder traverse in iterative way
+    print("\n>>> Traverse Pre Order in Iterative Way <<<");
+    traverse_pre_order_iteravite(root);

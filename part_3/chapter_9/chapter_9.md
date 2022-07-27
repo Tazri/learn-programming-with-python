@@ -57,16 +57,17 @@ class TreeNode :
         if not _node :
             _node.parent = self;
 ```
-<hr />
-<br />
 
-## Traverse Binary Tree 
+### Traverse Binary Tree 
 There are three algorithm two traverse binary tree. Here : 
 1. pre-order
 1. post-order
 1. in-order
 
-### pre-order   
+<hr />
+<br />
+
+## pre-order   
 In this algorithm first visit root node. Than traverse left child and last traverse right child.
 
 **Pre-Order Algorithm :**
@@ -151,3 +152,63 @@ output :
 3
 4
 ```
+
+**Implement pre_order binary tree traverse in iterative way :**
+```python
+# pre-order traverse binary tree in iterative way
+def traverse_pre_order_iteravite(_root):
+    # create root stack
+    root_stack = [_root];
+
+    while root_stack:
+        # get root from stack and print
+        current_root = root_stack.pop();
+        print(current_root);
+
+        # if right root exist then append it to root stack
+        if current_root.right :
+            root_stack.append(current_root.right);
+        
+        # if left root exist then append it to root stack
+        if current_root.left :
+            root_stack.append(current_root.left);
+```
+
+**Use traverse_pre_order_iterative funciton :**
+```python
+if __name__ == "__main__" :
+    '''
+    Create below tree data structure
+            _2_
+           /   \
+          7     9
+         / \     \
+        1   6     8
+           / \   / \
+          5  10 3   4
+    '''
+    root = create_tree();
+
+    # pre_roder traverse in iterative way
+    print("\n>>> Traverse Pre Order in Iterative Way <<<");
+    traverse_pre_order_iteravite(root);
+```
+
+output : 
+```bash
+>>> Traverse Pre Order in Iterative Way <<<
+2
+7
+1
+6
+5
+10
+9
+8
+3
+4
+```
+
+<hr />
+<br />
+
