@@ -70,12 +70,27 @@ There are three algorithm two traverse binary tree. Here :
 ## pre-order   
 In this algorithm first visit root node. Than traverse left child and last traverse right child.
 
-**Pre-Order Algorithm :**
+**Pre-Order Traverse Binary Tree Algorithm :**
 
-input : tree, root
+input : tree root
 1. Visit root node.
 1. Traverse left sub tree.
 1. Traverese right sub tree.
+
+**Pre_Order Traverse Binary Tree Algorithm in Details :**
+
+input : tree root
+
+1. start
+1. create root_stack = []
+1. root_stack.append(root) 
+1. if root_stack is empty then go step 10 otherwise go next step
+1. current_root = root_stack.pop()
+1. print current_root data
+1. if current_root.right exist then, root_stack.append(current_root.right)
+1. if current_root.left exist then, root_stack.append(current_root.left)
+1. go back step 4
+1. end.
 
 **Flow chart Pre-Order binary tree traverse algorithm :**
 
