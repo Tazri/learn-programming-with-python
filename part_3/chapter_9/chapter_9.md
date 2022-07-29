@@ -227,3 +227,169 @@ output :
 <hr />
 <br />
 
+
+## post-order 
+post order binary tree traverse, first travere the left sub tree and than traverse the right sub tree. Last vist the root.
+
+**post-order binary tree traverse algorithm :**
+
+input : tree root 
+1. visit left subtree.
+1. visit right subtree.
+1. visit root node.
+
+**post-order binary tree traverse algorithm in details :**
+
+input : tree root 
+1. start
+1. input tree root
+1. if root is null then go step
+1. create node_stack = [] and print_stack = []
+1. node_stack.push(root)
+1. if node_stack is empty then go step 12
+1. popped_node = node_stack.pop();
+1. if popped_node.left exist then node_stack.push(popped_node.left)
+1. if popped_node.right exist then node_stack.push(popped_node.right)
+1. print_stack.push(popped_node)
+1. go back step 5
+1. if print_stack empty then go 14
+1. print print_stack.pop()
+1. end
+
+**Flowchat Post Order Binary Tree Traverse :**
+
+![Post Order Binary Tree Traverse Flowchart](./../../asset/flowchart/binary_tree_post-order_traverse_algorithm.png)
+
+**Example of Post order :**
+
+![binary tree single node](./../../asset/data_structure/binary_tree_node.png)
+
+If we traverse above binary tree then the output will : A,C,B
+
+```python
+'''
+    _B_
+   /   \
+  A     C
+
+post-order output : B,A,C
+'''
+```
+
+**Implement post-order binary tree traverse in recursive :**
+```python
+# post-order traverse binary tree in recursive 
+def traverse_post_order(_root):
+    # if left exist 
+    if _root.left :
+        traverse_post_order(_root.left);
+
+    # if right exist
+    if _root.right :
+        traverse_post_order(_root.right);
+    
+    # and print the root
+    print(_root);
+
+```
+
+**Use traverse_post_order function on tree :**
+```python
+if __name__ == "__main__" :
+    '''
+    Create below tree data structure
+            _2_
+           /   \
+          7     9
+         / \     \
+        1   6     8
+           / \   / \
+          5  10 3   4
+    '''
+
+    # post_order traverse in recursive 
+    print(">>> Traverse Post Order in Recursive Way <<<");
+    traverse_post_order(root);
+```
+
+output :
+```bash
+>>> Traverse Post Order in Recursive Way <<<
+1
+5
+10
+6
+7
+3
+4
+8
+9
+2
+```
+
+**Implement post-order binary tree traverse in iterative :**
+```python
+# post-order traverse binary tree in iterative
+def traverse_post_order_iterative(_root):
+    # if _root is None 
+    if _root == None :
+        return;
+
+    # create node_stack and print_stack
+    node_stack = [_root];
+    print_stack = []; # here contain data to print 
+
+    while node_stack :
+        popped_node = node_stack.pop();
+
+        # if left and right exist then first left push after right push to node stack
+        if popped_node.left :
+            node_stack.append(popped_node.left);
+
+        if popped_node.right :
+            node_stack.append(popped_node.right);
+
+        # push the popped node to print_stack
+        print_stack.append(popped_node);
+             
+    while print_stack :
+        print(print_stack.pop());
+```
+
+**Use traverse_post_order_iterative function**
+```python
+if __name__ == "__main__" :
+    '''
+    Create below tree data structure
+            _2_
+           /   \
+          7     9
+         / \     \
+        1   6     8
+           / \   / \
+          5  10 3   4
+    '''
+    root = create_tree();
+
+    # post_order traverse in iterative 
+    print(">>> Traverse Post Order in Iterative Way <<<");
+    traverse_post_order_iterative(root);
+```
+
+output :
+```bash
+>>> Traverse Post Order in Iterative Way <<<
+1
+5
+10
+6
+7
+3
+4
+8
+9
+2
+```
+
+<hr />
+<br />
