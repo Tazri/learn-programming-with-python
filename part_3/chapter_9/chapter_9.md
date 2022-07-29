@@ -64,6 +64,8 @@ There are three algorithm two traverse binary tree. Here :
 1. post-order
 1. in-order
 
+![Three Kind of binary tree traverse](./../../asset/data_structure/binary_tree_traverse.png)
+
 <hr />
 <br />
 
@@ -393,3 +395,164 @@ output :
 
 <hr />
 <br />
+
+## in-order
+in-order traverese case, first traverse the left then visit root and last traverse right.
+
+**in-order binary tree traverse algorithm :**
+
+input : tree root
+1. traverse left subtree.
+1. visit root node.
+1. traverse right subtree.
+
+**another in-order binary tree traverse algorithm :**
+
+input : tree root 
+
+1. Initilize and empty stack.
+1. Push current node(starting from the root node) onto the stack. continue pushing node to the left of the current node until a Null value is reached.
+1. If the current node is null and the stack is not empty :
+    1. Remove and print last item from the stack.
+    1. set the current node to be the node to the right of the removed node. 
+    1. Repeat the secound step of the algorithm.
+1. if the current node is null and the stack is empty, then the algorithm has finished. 
+ 
+**in-order binary tree traverse algorithm in details :**
+
+input : tree root 
+
+1. start
+1. if root == null the go step 11 
+1. node_stack = [] and current_node = root 
+1. if node_stack is empty and current_node equal to null then go to step 11
+1. if current_node == null then go 8
+1. node_stack.append(current_node) and current_node = current_node.left
+1. go to step 4
+1. popped_node = node_stack.pop();
+1. print(popped_node);
+1. current_node = popped_node.right and go back step 4
+1. end
+
+**in-order binary tree traverse flowchart :**
+
+![in-order binary tree traverse flowchart](./../../asset/flowchart/binary_tree_in-order_traverse_algorithm.png)
+
+**Example of in-order traverse :**
+
+![binary tree node](./../../asset/data_structure/binary_tree_node.png)
+
+If traverse the in-order way on above node then :
+
+```python
+'''
+    _B_
+   /   \
+  A     C
+
+in-order output : 
+A, B, C
+'''
+```
+
+**Implement in order binary tree traverse recursive :**
+```python
+# in-order binary tree traverse in recursive
+def traverse_in_order(_root):
+    if _root == None :
+        return;
+    
+    if _root.left : # if left sub tree exist 
+        traverse_in_order(_root.left);
+    
+    print(_root,end='  '); # visit root node
+
+    if _root.right : # if right sub tree exist
+        traverse_in_order(_root.right);
+```
+
+**use traverse_in_order function :**
+```python
+if __name__ == "__main__" :
+    '''
+    Create below tree data structure
+            _2_
+           /   \
+          7     9
+         / \     \
+        1   6     8
+           / \   / \
+          5  10 3   4
+    '''
+    root = create_tree();
+
+    # in_order traverse in recursive 
+    print(">>> Traverse In Order in Recursive <<<");
+    traverse_in_order(root);
+    print();
+```
+
+output :
+```bash
+>>> Traverse In Order in Recursive <<<
+1  7  5  6  10  2  9  3  8  4  
+```
+
+**Implement in order binary tree traverse iterative :**
+```python
+# in-order binary tree traverse in iterative
+def traverse_in_order_iterative(_root):
+    # if _root is empty 
+    if _root == None :
+        return;
+
+    # create root_stack
+    node_stack = [];
+    current_node = _root;
+
+    while node_stack or current_node:
+        # if current_node left exist
+        if current_node :
+            node_stack.append(current_node);
+            current_node = current_node.left;
+
+        # if current_node None
+        if current_node == None :
+            popped_node = node_stack.pop();
+            print(popped_node,end='  ');
+
+            current_node = popped_node.right;   
+        
+```
+
+**Use traverse_in_order_iterative function :**
+```python
+if __name__ == "__main__" :
+    '''
+    Create below tree data structure
+            _2_
+           /   \
+          7     9
+         / \     \
+        1   6     8
+           / \   / \
+          5  10 3   4
+    '''
+    root = create_tree();
+
+    # in_order traverse in iterative
+    print(">>> Traverse In Order in Iterative <<<");
+    traverse_in_order_iterative(root);
+    print();
+```
+
+output : 
+```bash
+>>> Traverse In Order in Iterative <<<
+1  7  5  6  10  2  9  3  8  4  
+```
+<hr />
+<br />
+
+[< Go Back](./../part_3.md)
+---------------------------

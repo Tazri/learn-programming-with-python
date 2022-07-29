@@ -1,5 +1,6 @@
 # binary node
 from multiprocessing import current_process
+from xml.dom import NOT_FOUND_ERR
 
 
 class TreeNode : 
@@ -102,6 +103,45 @@ def traverse_post_order_iterative(_root):
 
 
 
+# in-order binary tree traverse in recursive
+def traverse_in_order(_root):
+    if _root == None :
+        return;
+    
+    if _root.left : # if left sub tree exist 
+        traverse_in_order(_root.left);
+    
+    print(_root,end='  '); # visit root node
+
+    if _root.right : # if right sub tree exist
+        traverse_in_order(_root.right);
+
+# in-order binary tree traverse in iterative
+def traverse_in_order_iterative(_root):
+    # if _root is empty 
+    if _root == None :
+        return;
+
+    # create root_stack
+    node_stack = [];
+    current_node = _root;
+
+    while node_stack or current_node:
+        # if current_node left exist
+        if current_node :
+            node_stack.append(current_node);
+            current_node = current_node.left;
+
+        # if current_node None
+        if current_node == None :
+            popped_node = node_stack.pop();
+            print(popped_node,end='  ');
+
+            current_node = popped_node.right;   
+        
+
+
+
 def create_tree():
     '''
     Create below tree data structure
@@ -176,3 +216,13 @@ if __name__ == "__main__" :
     # post_order traverse in iterative 
     print("\n>>> Traverse Post Order in Iterative Way <<<");
     traverse_post_order_iterative(root);
+
+    # in_order traverse in recursive 
+    print("\n>>> Traverse In Order in Recursive <<<");
+    traverse_in_order(root);
+    print();
+
+    # in_order traverse in iterative
+    print("\n>>> Traverse In Order in Iterative <<<");
+    traverse_in_order_iterative(root);
+    print();
