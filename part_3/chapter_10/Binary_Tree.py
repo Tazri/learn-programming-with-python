@@ -18,12 +18,12 @@ class Node :
         self.right = _node;
         if _node != None :
             self.right.parent = self;
-    
-    def traverse_inorder(self):
-        if self.left :
-            self.traverse_inorder(self.left);
 
-        print(self,end="  ");
+def traverse_inorder_r(_root):
+    if _root.left :
+        traverse_inorder_r(_root.left);
 
-        if self.right :
-            self.traverse_inorder(self.right);
+    print(_root,end="  ");
+
+    if _root.right :
+        traverse_inorder_r(_root.right);
