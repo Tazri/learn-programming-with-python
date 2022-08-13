@@ -19,6 +19,12 @@ class Node :
         if _node != None :
             self.right.parent = self;
 
+    def copyfrom(self,_node):
+        self.data = _node.data;
+        self.left = _node.left;
+        self.right = _node.right;
+        self.parent = _node.parent
+
 def traverse_inorder_r(_root):
     if _root.left :
         traverse_inorder_r(_root.left);
