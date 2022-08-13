@@ -59,6 +59,19 @@ def minimum_bst(_root):
 
     return left_root;
 
+# find successor
+def bst_successor(_root):
+    right_child = _root.right;
+
+    return minimum_bst(right_child);
+
+# find predecessor
+def bst_predecessor(_root:Binary_Tree.Node):
+    left_child = _root.left;
+
+    return maximum_bst(left_child);
+
+# find pre
 
 def create_bst():
     """
@@ -113,3 +126,9 @@ if __name__ == '__main__':
     print("\n\n>>> maximum and minium in root <<<");
     print("maximum_bst(root) : ",maximum_bst(root));
     print("minimum_bst(root) : ",minimum_bst(root));
+
+
+    print("\n\n>>>Predecessor and successor<<<");
+    print('bst_predecessor(root) : ',bst_predecessor(root));
+    print('bst_successor(root) : ',bst_successor(root));
+    
