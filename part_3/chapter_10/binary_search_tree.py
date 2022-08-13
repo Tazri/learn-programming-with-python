@@ -44,6 +44,21 @@ def search_bst(_root,_key):
 
     return current_node;
 
+# find maximum item
+def maximum_bst(_root):
+    right_root = _root;
+
+    while right_root.right : right_root = right_root.right;
+
+    return right_root;
+
+# find minimum item in bst
+def minimum_bst(_root):
+    left_root = _root;
+    while left_root.left : left_root = left_root.left;
+
+    return left_root;
+
 
 def create_bst():
     """
@@ -94,3 +109,7 @@ if __name__ == '__main__':
     print('\n\n> Search 8 in bst : ');
     node_eight = search_bst(root,8);
     print(node_eight);
+
+    print("\n\n>>> maximum and minium in root <<<");
+    print("maximum_bst(root) : ",maximum_bst(root));
+    print("minimum_bst(root) : ",minimum_bst(root));
