@@ -44,6 +44,17 @@ def search_bst(_root,_key):
 
     return current_node;
 
+# transplant
+def transplant(_root:Binary_Tree.Node,_current_node:Binary_Tree.Node,_new_node:Binary_Tree.Node):
+    if _current_node.parent == None :
+        _root = _new_node;
+    elif _current_node == _current_node.parent.left :
+        _current_node.parent.add_left(_new_node);
+    else :
+        _current_node.parent.add_right(_new_node);
+    
+    return _root;
+
 
 # create on kind of bst
 def create_bst():
@@ -59,7 +70,6 @@ def create_bst():
 
     
     root = Binary_Tree.Node(10);
-    root.parent = 'root';
 
     items = [5,17,3,7,12,19,1,4,13];
     
