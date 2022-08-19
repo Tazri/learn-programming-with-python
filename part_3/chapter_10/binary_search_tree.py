@@ -52,6 +52,14 @@ def bst_minimun(_root:Binary_Tree.Node)->Binary_Tree.Node:
 
     return left;
 
+# maximum
+def bst_maximum(_root:Binary_Tree.Node)->Binary_Tree.Node:
+    right = _root;
+
+    while right.right : right = right.right;
+
+    return right;
+
 # transplant
 def bst_transplant(_root:Binary_Tree.Node,_current_node:Binary_Tree.Node,_new_node:Binary_Tree.Node):
     if _current_node.parent == None :
