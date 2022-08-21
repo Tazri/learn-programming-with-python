@@ -59,12 +59,13 @@ def insert_bst(root,node) :
 
     return root;
 ```
+---------------------------------------------
+<br />
 
-
-### How to find minimum node in binary search tree.
+### How to find minimum node in binary search tree ?
 Minimum node of binary search tree is last node of left child. Traverse the left child again and again until reach the last level of tree then we can find the minimum node of binary tree.
 
-> first left node of last level is minimum node of binary search tree.
+> Traverse the left of binary tree until reach a node which left node is empty. This node is minimum node of binary search tree.
 
 ***Find minimum in binary search tree: bst_minimum***
 ```python
@@ -78,4 +79,35 @@ def bst_minimun(_root:Binary_Tree.Node)->Binary_Tree.Node:
 ```
 
 ### How to find maximum node in binary search tree. 
-Maximum node of binary search tree is last node of right child. Traverse 
+Maximum node of binary search tree is last node of right child. Traverse the right child again and again until reach the last level of tree then we can found the maximum node of binary tree.
+
+> Traverse the right of binary tree until reach a node which right node is empty. This node is maximum node of binary search tree.
+
+***Find maximum in binary search tree: bst_maximum***
+```python
+# maximum
+# maximum
+def bst_maximum(_root:Binary_Tree.Node)->Binary_Tree.Node:
+    right = _root;
+
+    while right.right : right = right.right;
+
+    return right;
+```
+
+### How ot find inorder predesecor and successor
+Successor of any node of binary search tree is manimum of it's right sub tree. Predesecor is maximum node of it's left sub tree.
+
+-----------------------------------------
+
+## Delete node in binary search tree.
+When We delete node in binary search tree then 3 thing occur :
+
+1. Delete a node which has no child.
+1. Delete a node which has one child. 
+1. Dlete a node which has two child.
+
+
+### Delete a node node which has no child.
+In that case just delete reference it from it parent. Nothing else. Here visualization : 
+

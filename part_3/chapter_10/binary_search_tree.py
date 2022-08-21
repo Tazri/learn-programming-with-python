@@ -167,6 +167,10 @@ if __name__ == '__main__':
     print("bst_minimum(root.right) : ",bst_minimun(root.right));
     print("bst.minimum(root.left) : ",bst_minimun(root.left));
 
+    print("\n\n>>> Check bst_maximum <<<");
+    print("bst_maximum(root) : ",bst_maximum(root));
+    print("bst_maximum(root.left) : ",bst_maximum(root.left));
+
     print("\n\n>>> check bst_delete <<<");
     delete_result = bst_delete(root,root);
 
