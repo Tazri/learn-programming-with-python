@@ -108,6 +108,75 @@ When We delete node in binary search tree then 3 thing occur :
 1. Dlete a node which has two child.
 
 
-### Delete a node node which has no child.
+### Delete a node which has no child.
 In that case just delete reference it from it parent. Nothing else. Here visualization : 
 
+![delete a node which has no child](./../../asset/data_structure/examle/deleting_node_which_has_no_child.png)
+
+### Delete a node which has one child
+In that case just delete the node and conect it's child to it's parent. Here example : 
+
+![Deleting a node which has one child](./../../asset/data_structure/examle/deleting_node_which_has_one_child.png)
+
+### Delete a node which has two child
+In that case delete replace node with it inorder predecessor or successor and delete successor or predecessor. If successor or predecessor has child then connect it with successor or predecessor parent.
+
+![Delete a node which has two child](./../../asset/data_structure/examle/deleting_a_node_which_has_two_child.png)
+
+***Delete node from bst : bst_delete*** 
+```python
+# transplant
+def bst_transplant(_root:Binary_Tree.Node,_current_node:Binary_Tree.Node,_new_node:Binary_Tree.Node):
+    if _current_node.parent == None :
+        _root = _new_node;
+    elif _current_node == _current_node.parent.left :
+        _current_node.parent.add_left(_new_node);
+    else :
+        _current_node.parent.add_right(_new_node);
+    
+    return _root;
+
+# delete
+def bst_delete(_root:Binary_Tree.Node,_node:Binary_Tree.Node):
+    # if left dose not exist or both dose not exist
+    if _node.left == None :
+        bst_transplant(_root,_node,_node.right);
+        return _root;
+    
+    # if right dose not exist
+    if _node.right == None:
+        bst_transplant(_root,_node,_node.left);
+        return _root;
+
+    # if left and right both exist 
+    # find the successor
+    successor = bst_minimun(_node.right);
+
+    # if node was parent
+    if _node.parent == None :
+        p_left = _root.left;
+        p_right = _root.right;
+
+        bst_transplant(_root,successor,successor.right);
+        bst_transplant(_root,_node,successor);
+        successor.add_left(p_left);
+        successor.add_right(p_right);      
+        return successor;
+
+    # if node was not parent
+    node_parent = _node.parent;
+    n_left = _node.left;
+    n_right = _node.right;
+    bst_transplant(_root,successor,successor.right);
+    bst_transplant(_root,_node,successor);
+    successor.add_left(n_left);
+    successor.add_right(n_right);
+    successor.parent = node_parent;
+    return _root;
+
+```
+----
+<br />
+
+[< Go Back](./../part_3.md)
+---------------------------
