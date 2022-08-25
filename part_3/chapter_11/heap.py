@@ -57,35 +57,44 @@ def is_max_heap(_heap):
     return True;
 
 # swap list value
-def swap(_list,_ai,_bi)-> list :
+def swap(_list:list,_ai:int,_bi:int)-> list :
     temp = _list[_ai];
     _list[_ai] = _list[_bi];
     _list[_bi] = temp;
     return _list;
 
 # max_heapify
-def max_heapify(_heap,_root)-> list :
+def max_heapify(_heap:list,_root_index:int=0)-> list :
     last_index = len(_heap) - 1;
-    li = get_left(_root); # left index
-    ri = get_right(_root);
-    l = _heap[li]; # left
-    r = _heap[ri]; # right
-    rt = _heap[_root]; # root 
+    li = get_left(_root_index); # left index
+    ri = get_right(_root_index); # right index.
 
-    # if root, left or right is equal or greater than last index
-    if li >= last_index or ri >= last_index or _root >= last_index :
+    # if traverse the last
+    if _root_index >= last_index:
         return _heap;
-
-    # if is _root less than left or right
-    if rt < l or rt < r :
-        if l > r : # swaping
-            swap(_heap,li,_root);
-            max_heapify(_heap,li);
-        else :
-            swap(_heap,ri,_root);
-            max_heapify(_heap,ri);
     
-    max_heapify(_heap,_root+1);
+    # greater index
+    gi = None;
+    if ri > last_index and li <= last_index :
+        gi = li;
+    elif ri <= last_index and li > last_index:
+        gi = ri;
+    elif ri <= last_index and li <= last_index :
+        if _heap[ri] > _heap[li] :
+            gi = ri;
+        else:
+            gi = li;
+
+    # if _heap[gi] > _heap[_root_index]
+    if gi != None and (_heap[gi] > _heap[_root_index]):
+        swap(_heap,gi,_root_index);
+        rpi = get_parent(_root_index) or 1; # root_parent_index
+        max_heapify(_heap,rpi);
+
+    # call max heapify for other
+    max_heapify(_heap,_root_index+1);
+
+
 
 if __name__ == '__main__' :
     heap = create_heap();
@@ -102,7 +111,7 @@ if __name__ == '__main__' :
     print("is_max_heap(heap_two) : ",is_max_heap(heap_two));
 
     # after using max_hapify
-    print("\n>>> After Max Heapifoy heap two <<<");
+    print("\n>>> After Max Heapify heap two <<<");
     max_heapify(heap_two,1);
     print(build(heap_two[1:]));
     print("is_max_heap(heap_two) : ",is_max_heap(heap_two));
