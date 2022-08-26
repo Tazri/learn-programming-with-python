@@ -56,6 +56,16 @@ def is_max_heap(_heap):
     
     return True;
 
+# is_min_heap
+def is_min_heap(_heap):
+    n = len(_heap) - 1;
+
+    for i in range(n,1,-1):
+        if _heap[get_parent(i)] > _heap[i] :
+            return False;
+    
+    return True;
+
 # swap list value
 def swap(_list:list,_ai:int,_bi:int)-> list :
     temp = _list[_ai];
@@ -94,7 +104,19 @@ def max_heapify(_heap:list,_root_index:int=0)-> list :
     # call max heapify for other
     max_heapify(_heap,_root_index+1);
 
+# min_heapify
+def min_heapify(_heap:list,_root_index:int=0)-> list:
+    last_index = len(_heap) - 1;
+    li = get_left(_root_index); # root index
+    ri = get_right(_root_index); # right index
 
+    # smaller node
+    si = None;
+
+# status heap details
+def heap_details(_heap):
+    print("is_max_heap(heap) : ",is_max_heap(_heap));
+    print("is_min_heap(heap) : ",is_min_heap(_heap));
 
 if __name__ == '__main__' :
     heap = create_heap();
@@ -108,11 +130,10 @@ if __name__ == '__main__' :
     heap_two = create_heap_list();
     print("\n\n>>> Before Max Heapifpy heap two <<<");
     print(build(heap_two[1:]));
-    print("is_max_heap(heap_two) : ",is_max_heap(heap_two));
+    heap_details(heap_two);
 
     # after using max_hapify
     print("\n>>> After Max Heapify heap two <<<");
     max_heapify(heap_two,1);
     print(build(heap_two[1:]));
-    print("is_max_heap(heap_two) : ",is_max_heap(heap_two));
-    
+    heap_details(heap_two);
