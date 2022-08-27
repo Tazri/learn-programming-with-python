@@ -80,7 +80,7 @@ def max_heapify(_heap:list,_root_index:int=0)-> list :
     ri = get_right(_root_index); # right index.
 
     # if traverse the last
-    if _root_index >= last_index:
+    if _root_index >= (last_index // 2)+1:
         return _heap;
     
     # greater index
@@ -110,8 +110,29 @@ def min_heapify(_heap:list,_root_index:int=0)-> list:
     li = get_left(_root_index); # root index
     ri = get_right(_root_index); # right index
 
+    if _root_index >= (last_index//2) + 1:
+        return _heap;
+
     # smaller node
-    si = None;
+    si = None; # smaller_index
+    if ri > last_index and li <= last_index:
+        si = li;
+    elif ri <= last_index and li > last_index:
+        si = ri;
+    elif ri <= last_index and li <= last_index:
+        if _heap[ri] > _heap[li] :
+            si = li;
+        else:
+            si = ri;
+
+    # swap root with si if _heap[si] < _heap[_root_index]
+    if si != None and (_heap[si] < _heap[_root_index]):
+        swap(_heap,si,_root_index);
+        rpi = get_parent(_root_index) or 1; # root_parent_index
+        min_heapify(_heap,rpi); # call min heapify for parent
+    
+    # call min heapify for other
+    min_heapify(_heap,_root_index+1);
 
 # status heap details
 def heap_details(_heap):
@@ -135,5 +156,10 @@ if __name__ == '__main__' :
     # after using max_hapify
     print("\n>>> After Max Heapify heap two <<<");
     max_heapify(heap_two,1);
+    print(build(heap_two[1:]));
+    heap_details(heap_two);
+
+    print("\n>>> After Min Heapify heap two <<<");
+    min_heapify(heap_two,1);
     print(build(heap_two[1:]));
     heap_details(heap_two);
