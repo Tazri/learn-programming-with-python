@@ -34,7 +34,7 @@ def create_heap()->list:
     return heap;
 
 # create another heap list
-def create_heap_list()->list: return [None,12,7,1,3,10,17,19,2,5];
+def create_heap_list()->list: return [None,7,12,1,3,10,17,19,2,5];
 
 # left child
 def get_left(_i:int)-> int : return _i *2;
@@ -74,84 +74,74 @@ def swap(_list:list,_ai:int,_bi:int)-> list :
     return _list;
 
 # max_heapify
-def max_heapify(_heap:list,_root_index:int=0)-> list :
-    last_index = len(_heap) - 1;
-    li = get_left(_root_index); # left index
-    ri = get_right(_root_index); # right index.
+def max_heapify(_heap:list,_heap_size:int=None,_root:int=1)->list:
+    heap_size =_heap_size or len(_heap)-1;
+    left = get_left(_root);
+    right = get_right(_root);
 
-    # if traverse the last
-    if _root_index >= (last_index // 2)+1:
+    # find largest value index between left, right and _root;
+    if left <=heap_size and _heap[left] > _heap[_root]:
+        largest = left;
+    else:
+        largest = _root;
+
+    if right <= heap_size and _heap[right] > _heap[largest]:
+        largest = right;
+    
+    # root is largest
+    if largest == _root :
         return _heap;
     
-    # greater index
-    gi = None;
-    if ri > last_index and li <= last_index :
-        gi = li;
-    elif ri <= last_index and li > last_index:
-        gi = ri;
-    elif ri <= last_index and li <= last_index :
-        if _heap[ri] > _heap[li] :
-            gi = ri;
-        else:
-            gi = li;
+    # if not root i largest
+    swap(_heap,largest,_root); # swap first;
+    max_heapify(_heap,_heap_size,largest);
 
-    # if _heap[gi] > _heap[_root_index]
-    if gi != None and (_heap[gi] > _heap[_root_index]):
-        swap(_heap,gi,_root_index);
-        rpi = get_parent(_root_index) or 1; # root_parent_index
-        max_heapify(_heap,rpi);
 
-    # call max heapify for other
-    max_heapify(_heap,_root_index+1);
+# max_build
+def max_heap_build(_list:list)->list:
+    size = len(_list)-1;
+
+    for i in range(size//2,0,-1):
+        max_heapify(_list,size,i);
+
+    return _list;
 
 # min_heapify
-def min_heapify(_heap:list,_root_index:int=0)-> list:
-    last_index = len(_heap) - 1;
-    li = get_left(_root_index); # root index
-    ri = get_right(_root_index); # right index
+def min_heapify(_heap:list,_heap_size:int=None,_root:int=1)->list:
+    heap_size = _heap_size or len(_heap_size) - 1;
+    left = get_left(_root);
+    right = get_right(_root);
 
-    if _root_index >= (last_index//2) + 1:
-        return _heap;
-
-    # smaller node
-    si = None; # smaller_index
-    if ri > last_index and li <= last_index:
-        si = li;
-    elif ri <= last_index and li > last_index:
-        si = ri;
-    elif ri <= last_index and li <= last_index:
-        if _heap[ri] > _heap[li] :
-            si = li;
-        else:
-            si = ri;
-
-    # swap root with si if _heap[si] < _heap[_root_index]
-    if si != None and (_heap[si] < _heap[_root_index]):
-        swap(_heap,si,_root_index);
-        
-        if _heap[get_parent(_root_index)] == None :
-            rpi = 1;
-        else :
-            rpi = get_parent(_root_index);
-        min_heapify(_heap,rpi); # call min heapify for parent
+    # find smallest value index between left, right and _root
+    if left <= heap_size and _heap[left] < _heap[_root]:
+        smallest = left;
+    else:
+        smallest = _root;
     
-    # call min heapify for other
-    min_heapify(_heap,_root_index+1);
+    if right <= heap_size and _heap[right] < _heap[smallest]:
+        smallest = right;
+    
+    # if smallest is _root then finish it
+    if smallest == _root:
+        return _heap;
+    
+    # swap root with smallest
+    swap(_heap,smallest,_root);
+    min_heapify(_heap,_heap_size,smallest);
+
+# min_heap_build
+def min_heap_build(_list:list)->list:
+    size = len(_list) - 1;
+
+    for i in range(size//2,0,-1):
+        min_heapify(_list,size,i);
+
+    return _list;
 
 # status heap details
 def heap_details(_heap):
     print("is_max_heap(heap) : ",is_max_heap(_heap));
     print("is_min_heap(heap) : ",is_min_heap(_heap));
-
-def heap_heap_short(_list:list)-> list:
-    last_index = len(_list) - 1;
-
-    for i in range(len(_list)):
-        max_heapify(_list,i);
-        print(_list);
-        swap(_list,last_index,i);
-    
-    return _list; 
 
 if __name__ == '__main__' :
     heap = create_heap();
@@ -169,18 +159,11 @@ if __name__ == '__main__' :
 
     # after using max_hapify
     print("\n>>> After Max Heapify heap two <<<");
-    max_heapify(heap_two,1);
+    max_heap_build(heap_two);
     print(build(heap_two[1:]));
     heap_details(heap_two);
 
     print("\n>>> After Min Heapify heap two <<<");
-    min_heapify(heap_two,1);
+    min_heap_build(heap_two);
     print(build(heap_two[1:]));
     heap_details(heap_two);
-
-    print("\n>>> heap heap short <<<");
-    unorder_list = [3,4,5,1,8,2,3,4,5,7];
-    print("unorder_list : ",unorder_list);
-    heap_heap_short(unorder_list);
-    print("unorder_list : ",unorder_list);
-    
