@@ -128,7 +128,11 @@ def min_heapify(_heap:list,_root_index:int=0)-> list:
     # swap root with si if _heap[si] < _heap[_root_index]
     if si != None and (_heap[si] < _heap[_root_index]):
         swap(_heap,si,_root_index);
-        rpi = get_parent(_root_index) or 1; # root_parent_index
+        
+        if _heap[get_parent(_root_index)] == None :
+            rpi = 1;
+        else :
+            rpi = get_parent(_root_index);
         min_heapify(_heap,rpi); # call min heapify for parent
     
     # call min heapify for other
@@ -138,6 +142,16 @@ def min_heapify(_heap:list,_root_index:int=0)-> list:
 def heap_details(_heap):
     print("is_max_heap(heap) : ",is_max_heap(_heap));
     print("is_min_heap(heap) : ",is_min_heap(_heap));
+
+def heap_heap_short(_list:list)-> list:
+    last_index = len(_list) - 1;
+
+    for i in range(len(_list)):
+        max_heapify(_list,i);
+        print(_list);
+        swap(_list,last_index,i);
+    
+    return _list; 
 
 if __name__ == '__main__' :
     heap = create_heap();
@@ -163,3 +177,10 @@ if __name__ == '__main__' :
     min_heapify(heap_two,1);
     print(build(heap_two[1:]));
     heap_details(heap_two);
+
+    print("\n>>> heap heap short <<<");
+    unorder_list = [3,4,5,1,8,2,3,4,5,7];
+    print("unorder_list : ",unorder_list);
+    heap_heap_short(unorder_list);
+    print("unorder_list : ",unorder_list);
+    
