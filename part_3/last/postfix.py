@@ -1,7 +1,3 @@
-# operate two number
-from unittest import result
-
-
 def operate(sa:str,sb:str,op:str):
     na = int(sa);
     nb = int(sb);
@@ -13,7 +9,7 @@ def operate(sa:str,sb:str,op:str):
     elif op == '%' : return na % nb;
 
 # postfix_evalute -> evalute the postfix expression
-def postfix_evalute(expression:str)->int: 
+def postfix_evaluate(expression:str)->int: 
     # split the number and create necessary variable
     expression_list = expression.split(','); 
     number_stack = [];
@@ -45,7 +41,7 @@ def terminate()->None:
 
 # show result 
 def show_result(s:str)->None:
-    result = postfix_evalute(s);
+    result = postfix_evaluate(s);
     print("Result : ",result);
     print("----------------");
     print("\n")
