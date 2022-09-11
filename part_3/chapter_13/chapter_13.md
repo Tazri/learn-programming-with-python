@@ -2,7 +2,31 @@ Chapter 13 : More Sorting
 =========================
 In this chapter I implemant merge sort, quick sort and counting sort. Here descibe those sort : 
 
+## Divide and Conquer Strategy
+In **Divide and Conquer Strategy**, we divide a problem into subproblems. Ready a solution for those subproblem and solve the subproblem then **combine** the results of subproblems to solve main problems. Three part of divide and conquer : 
+
+1. **Divide :** the main problem into subproblems.
+1. **Conquer :** solve the subproblems.
+1. **Combine :** combine the results of subproblems and solve the main problems.
+
+In other way to see those 3 part :
+
+1. **Divide**
+1. **Common Algorithm**
+1. **Combine**
+
 ## Merge Sort
+Merge sort is one kind of divide and conquer algorithm. Here we divide the array to many pieces and solve sort them a common algorithm then merge the results of pieces sort to sort the main problem. There are three part in merge sort.
+
+1. Divide.
+1. Merge Algorithm
+1. Combine.
+
+### Divide 
+Here divide the array in to to many pieces. In that case first divide the array 2 part. Half and half called right half and left half. Then divide right and left half again and again until the array element reach only one each part.
+
+### Merge Algorithm
+Here developed a algorithm to merge two sorted array or list. It called common algorithm for merge sort. Here the program : 
 
 ***Program : merge two sorted list***
 ```python
@@ -33,14 +57,17 @@ def merge(_list_one:list,_list_two:list)->list:
 
     return merged_list;
 ```
+## Combine
+Here we merge the every part by merge algorithms. Then last we find the sorted array.
 
 ***Program : merge sort***
 ```python
 # merge sort
 def merge_sort(_list:list)->list:
+    # when the list contain only one item or nothing
     if len(_list) <= 1:
         return _list;
-
+    
     mid = len(_list)//2;
     left = merge_sort(_list[:mid]);
     right = merge_sort(_list[mid:]);
