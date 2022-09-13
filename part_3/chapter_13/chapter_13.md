@@ -75,6 +75,14 @@ def merge_sort(_list:list)->list:
 ```
 
 ## Quick Sort 
+Quick sort algorithm based on the divide conquer approach too. Here quick sort algorithm three part : 
+
+1. **Partition**
+1. **Divide**
+1. **Combine**
+
+### Partition
+Choose a element of array or list. It called **pivot**. Rearrange the array or list such that element less than **pivot** kept on left and greater than pivot kept on right. It called Partition.
 
 ***Program : partition***
 ```python
@@ -99,6 +107,11 @@ def partition(l:list,low:int=0,high:int=None):
     return index+1; # return index of pivot
 
 ```
+
+### Divide
+
+
+
 
 ***Program : quick sort***
 ```python
