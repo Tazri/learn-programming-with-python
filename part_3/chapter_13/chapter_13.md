@@ -109,9 +109,7 @@ def partition(l:list,low:int=0,high:int=None):
 ```
 
 ### Divide
-
-
-
+When it partion complete then divide the list or array based on pivot. Considered pivot left side is left array and right side is right array and parition it again and divide again until the divided array or list kept only one item or nothing.
 
 ***Program : quick sort***
 ```python
@@ -131,7 +129,12 @@ def quick_sort(l:list,low:int=0,high:int=None):
     return l;
 ```
 
+### Combine
+Quick sort is **in-place** algorithm that's why it don't need to combine the solution at last.
+
+
 ## Counting Sort
+Counting sort is one kind of sorting algorithm. Here sorting the array by how many time number occur or count the every number in the array how many time they them. Counting sort algorithm best algorithm if need to sort a array which element is a not zero elements. Otherwise it not a good solution. Here counting sort implament in python : 
 
 ```python
 # counting_sort

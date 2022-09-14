@@ -1,4 +1,4 @@
-Chapter : Heap, Heap Sort and Priority Queue
+Chapter 11 : Heap, Heap Sort and Priority Queue
 ============================================
 
 Here discust about :

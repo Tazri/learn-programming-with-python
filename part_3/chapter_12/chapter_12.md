@@ -1,4 +1,6 @@
-# Hash Table
+Chapter 12 : Hash Table
+========================
+
 Hash table is one kind of array where data store key and value pair. Here 3 importants part of hash table : 
 
 - **Key** - key must be unique for using as indexing element.
