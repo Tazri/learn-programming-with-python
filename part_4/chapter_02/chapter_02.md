@@ -12,6 +12,7 @@ Here we learn about
   - [Function Arguments](#function-arguments)
   - [*args](#args)
   - [**kwargs](#kwargs)
+  - [< Go Back](#-go-back)
 
 <hr />
 <br />
@@ -187,17 +188,9 @@ print("ten_plus.__closure__ : ",ten_plus.__closure__);
 
 output :
 ```bash
-def addition(n_one):
-    def add(n_two):
-        return n_one + n_two;
-
-    return add;
-    
-ten_plus = addition(10); # here ten_plus is closure
-
-print("ten_plus(3) : ",ten_plus(3));
-print("addition.__closure__ : ",addition.__closure__)
-print("ten_plus.__closure__ : ",ten_plus.__closure__);
+ten_plus(3) :  13
+addition.__closure__ :  None
+ten_plus.__closure__ :  (<cell at 0x7f6d2c02b4c0: int object at 0x955f60>,)
 ```
 <hr />
 <br />
@@ -299,3 +292,51 @@ Hi, Alpha
 <br />
 
 ## **kwargs
+we can take argument as dictionary from function by ***\*\*kwargs***. Here example : 
+
+***Program : \*\*kwargs***
+```python
+def take_dict(**kwargs):
+    print(kwargs);
+    
+take_dict(a=3,b=6,c=4);
+
+def show_marks(n,**marks):
+    print("\nExam Name is : ",n);
+    for name in marks : 
+        print(name,":",marks[name]);
+    
+show_marks("ssc",anonymous=99,sirius=0,kripton=33)
+
+# below code work finly
+show_marks(n="hsc",anonymous=9,sirius=1,kripton=33)
+
+# below code work fine as well
+show_marks(anonymous=99,sirius=0,kripton=33,n="PSC")
+```
+
+output : 
+```bash
+{'a': 3, 'b': 6, 'c': 4}
+
+Exam Name is :  ssc
+anonymous : 99
+sirius : 0
+kripton : 33
+
+Exam Name is :  hsc
+anonymous : 9
+sirius : 1
+kripton : 33
+
+Exam Name is :  PSC
+anonymous : 99
+sirius : 0
+kripton : 33
+```
+
+<hr />
+<br />
+
+[< Go Back](./../part_4.md)
+-----------------------------
