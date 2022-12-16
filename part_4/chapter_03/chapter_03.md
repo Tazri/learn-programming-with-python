@@ -2,14 +2,12 @@ Chapter 03 : Decorator
 ======================
 
 Table of Content : 
-- [Chapter 03 : Decorator](#chapter-03--decorator)
-  - [Decorator](#decorator)
-  - [Decorator with Perameter](#decorator-with-perameter)
-  - [Decorator Keyword](#decorator-keyword)
-  - [Create Timeit Decorator](#create-timeit-decorator)
-  - [\_\_call\_\_](#__call__)
-  - [Class Decorator](#class-decorator)
-  - [< Go Back](#-go-back)
+- **[Decorator](#decorator)**
+- **[Decorator with Perameter](#decorator-with-perameter)**
+- **[Decorator Keyword](#decorator-keyword)**
+- **[Create Timeit Decorator](#create-timeit-decorator)**
+- **[\_\_call\_\_](#__call__)**
+- **[Class Decorator](#class-decorator)**
 
 ## Decorator
 Decorator is one kind of function which can take a function and add some functionality and return it. Here simple example of decorator : 

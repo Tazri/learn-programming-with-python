@@ -2,17 +2,15 @@ Chapter 02 : About Function in Python
 =====================================
 
 Here we learn about 
-- [Chapter 02 : About Function in Python](#chapter-02--about-function-in-python)
-  - [Function is Object](#function-is-object)
-  - [Function inside the Function](#function-inside-the-function)
-  - [Nonlocal](#nonlocal)
-  - [Return Function](#return-function)
-  - [Closure](#closure)
-  - [lambda](#lambda)
-  - [Function Arguments](#function-arguments)
-  - [*args](#args)
-  - [**kwargs](#kwargs)
-  - [< Go Back](#-go-back)
+- **[Function is Object](#function-is-object)**
+- **[Function inside the Function](#function-inside-the-function)**
+- **[Nonlocal](#nonlocal)**
+- **[Return Function](#return-function)**
+- **[Closure](#closure)**
+- **[lambda](#lambda)**
+- **[Function Arguments](#function-arguments)**
+- **[*args](#args)**
+- **[**kwargs](#kwargs)**
 
 <hr />
 <br />
@@ -169,7 +167,7 @@ output :
 <br />
 
 ## Closure
-Clusure in python is a one kind of function which has access his upper function variable. Closure function object **\_\_closure\_\_** is not **None**. Here example : 
+Clusure in python is a one kind of function which has access his upper function variable. Closure function object has **\_\_closure\_\_** which is not **None**. Here example : 
 
 ***python : closure example :***
 ```python

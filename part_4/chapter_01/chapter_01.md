@@ -2,12 +2,10 @@ Chapter 01 : Iterator and Generator
 ===================================
 
 Here We discuss about : 
-- [Chapter 01 : Iterator and Generator](#chapter-01--iterator-and-generator)
-  - [Container](#container)
-  - [Iterator](#iterator)
-  - [Create Iterator](#create-iterator)
-  - [Generator](#generator)
-  - [< Go Back](#-go-back)
+- **[Container](#container)**
+- **[Iterator](#iterator)**
+- **[Create Iterator](#create-iterator)**
+- **[Generator](#generator)**
 
 <hr />
 <br />

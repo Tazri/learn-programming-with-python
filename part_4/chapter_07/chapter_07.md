@@ -1,14 +1,12 @@
 Chapter 07 : Use of bisect Module 
 ============================
 table of content : 
-- [Chapter 07 : Use of bisect Module](#chapter-07--use-of-bisect-module)
-  - [making insort](#making-insort)
-  - [making insort using binary search](#making-insort-using-binary-search)
-  - [bisect](#bisect)
-  - [insort function make by bisect](#insort-function-make-by-bisect)
-  - [using bisect insort function](#using-bisect-insort-function)
-  - [Example Compare](#example-compare)
-  - [< Go Back](#-go-back)
+- **[making insort](#making-insort)**
+- **[making insort using binary search](#making-insort-using-binary-search)**
+- **[bisect](#bisect)**
+- **[insort function make by bisect](#insort-function-make-by-bisect)**
+- **[using bisect insort function](#using-bisect-insort-function)**
+- **[Example Compare](#example-compare)**
 
 ## making insort
 Here make function which append a item in list in sort.

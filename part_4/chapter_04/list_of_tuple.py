@@ -6,7 +6,7 @@ fruits = [
 ]
 
 print("> fruits :");
-print(sorted(fruits))
+print(fruits)
 
 print("> sorted(fruits) : ");
 print(sorted(fruits));

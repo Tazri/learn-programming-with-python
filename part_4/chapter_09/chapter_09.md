@@ -1,17 +1,18 @@
 Chapter 09: Some More OOP
 =========================
 Table of content : 
-- [Chapter 09: Some More OOP](#chapter-09-some-more-oop)
-  - [Magic Method](#magic-method)
-  - [Plus Operator Overloading](#plus-operator-overloading)
-  - [x.\_\_repr\_\_()](#x__repr__)
-  - [Priority Decoretor](#priority-decoretor)
-  - [Abstract Base Class](#abstract-base-class)
-  - [Static Method](#static-method)
-  - [Class Method](#class-method)
-  - [Data class](#data-class)
-  - [Multiple Inheritance](#multiple-inheritance)
-  - [Mixin](#mixin)
+- **[Magic Method](#magic-method)**
+- **[Plus Operator Overloading](#plus-operator-overloading)**
+- **[List of Operator Magic Method](#list-of-operator-magic-method)**
+- **[x.\_\_repr\_\_()](#x__repr__)**
+- **[Priority Decoretor](#priority-decoretor)**
+- **[Abstract Base Class](#abstract-base-class)**
+- **[Static Method](#static-method)**
+- **[Class Method](#class-method)**
+- **[Data class](#data-class)**
+- **[Multiple Inheritance](#multiple-inheritance)**
+- **[Mixin](#mixin)**
+- **[Composition](#composition)**
 
 ## Magic Method
 In python which method name start with **\_\_** and end with **\_\_** called magic method. Here some magic method use case : 
@@ -128,6 +129,64 @@ Hello, Anonymous!
 <hr />
 <br />
 
+
+## List of Operator Magic Method
+
+**Arithmatic and bitwise operator :**
+| Operator  | Magic Method Name                                                                 |
+|-----------|-----------------------------------------------------------------------------------|
+| +         | \_\_add__(self,right_operand)                                                     |
+| -         | \_\_sub__(self,right_operand) |
+| *         | \_\_mul__(self,right_operand) |
+| /         | \_\_truediv__(self,right_operand) |
+| //        | \_\_floordiv__(self,right_operand) |
+| %         | \_\_mod__(self,right_operand) |
+| **        | \_\_pow__(self,right_operand) |
+| >>        | \_\_rshift__(self,right_operand) |
+| <<        | \_\_lshift__(self,right_operand) |
+| &         | \_\_and__(self,right_operand) |
+| |         | \_\_or__(self,right_operand) |
+| ^         | \_\_xor__(self,right_operand) |
+
+**Comparision Operator :**
+| Operator | Magic Method Name                  |
+|----------|------------------------------------|
+| <        | \_\_lt__(self,right_operand)       |
+| >        | \_\_gt__(self,right_operand) |
+| <=       | \_\_le__(self,right_operand) |
+| >=       | \_\_ge__(self,right_operand) |
+| ==       | \_\_eq__(self,right_operand) |
+| !=       | \_\_ne__(self,right_operand) |
+
+
+**Assignment Operator :**
+| operator | Magic Method Name             |
+|----------|-------------------------------|
+| -=       | \_\_isub__(self,right_operand)  |
+| +=       | \_\_iadd__(self,right_operand)  |
+| *=       | \_\_imul__(self,right_operand)  |
+| /=       | \_\_idiv__(self,right_operand)  |
+| //=       | \_\_ifloordiv__(self,right_operand)  |
+| %=       | \_\_imod__(self,right_operand)  |
+| **=       | \_\_ipow__(self,right_operand)  |
+| >>=       | \_\_irshift__(self,right_operand)  |
+| <<=       | \_\_ilshift__(self,right_operand)  |
+| &=       | \_\_iand__(self,right_operand)  |
+| !=       | \_\_ior__(self,right_operand)  |
+| ^=       | \_\_ixor__(self,right_operand)  |
+
+**unary operator :**
+| operator | Magic Method Name      |
+|----------|------------------------|
+| -        | \_\_neg__(self)        |
+| +        | \_\_pos__(self)        |
+| ~        | \_\_invert__(self)     |
+
+
+
+<hr />
+<br />
+
 ## Priority Decoretor 
 Must of the programming language has 3 type of class instance variable. Here : 
 
@@ -136,6 +195,8 @@ Must of the programming language has 3 type of class instance variable. Here :
 3. Protected
 
 But in python there is no **private** or **protected** instance variable. Here everything is public. We can use single underscore starting of the variable name for mean that this is private variable and suggest that don't change it. Must of the programming language has two method for reading and changing private variable. **getter** for reading and **setter** for changing.  But python has **@property** decorator for this. here example : 
+
+> 🟢 We can use single underscore starting of the variable name for mean that this is private variable and suggest that don't change it for developer.
 
 ***Program : property_decorator.py***
 ```python
@@ -491,3 +552,64 @@ print(D.mro());
 <br />
 
 ## Mixin
+Multiple inheritance use in python to make mixin. Mixin class add a multiple method for others class without changing the class. Here example of mixin : 
+
+```python
+class Puzzle:
+    def __init__(self,name,price):
+        self.name,self.price = name,price;
+
+# create class with classes which class want to add another class
+class PuzzlePriceMixin:
+    def last_price(self):
+        return self.price*0.7;
+    
+    def details(self):
+        print(f"{self.name}(price : {self.price})");
+
+# add the method to Puzzle class
+class PuzzleStore(Puzzle,PuzzlePriceMixin):
+    pass;
+
+if __name__ == "__main__":
+    my_store = PuzzleStore("Rubik Cube",43.444);
+
+    print(f"my_store.last_price : {my_store.price}");
+    my_store.details()
+
+'''
+ouptut ; 
+my_store.last_price : 43.444
+Rubik Cube(price : 43.444)
+'''
+```
+
+## Composition
+If a class get one or more than one feature from another class that's called composition. 
+
+🟢 Inheritance -> inherit the whole class and composition just inherit some feature.
+
+Here the example : 
+
+```python
+class Jhontu :
+    def __init__():
+        self.n = Nonte();
+        self.f = Fonte();
+        self.m = Monte();
+
+    def math_marks():
+        return self.n.math_marks(); # inherit only math marks
+    
+    def english_marks():
+        return self.m.english_marks(); # inherit only english marks
+
+    def science_marks():
+        return self.f.science_marks(); # inherit only science marks
+```
+
+<hr />
+<br />
+
+[< Go Back](./../part_4.md)
+-------------------

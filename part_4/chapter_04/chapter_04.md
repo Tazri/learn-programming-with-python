@@ -3,10 +3,8 @@ Chapter 04 : Sorting
 
 Here we learn about sorting function which can use for sorting list, tuple. Here table of content : 
 
-- [Chapter 04 : Sorting](#chapter-04--sorting)
-  - [sort](#sort)
-  - [sorted](#sorted)
-  - [< Go Back](#-go-back)
+- **[sort](#sort)**
+- **[sorted](#sorted)**
 
 ## sort
 sort use for sort the list. sort is a list method. Here want to sort list reverse then pass the perameter **reverse=True** for sort the list reverse.
@@ -49,7 +47,7 @@ sort use for sort the list. sort is a list method. Here want to sort list revers
 
 Sorted  tuple of list :
 
-***Program : list_of_tupe.py*** 
+***Program : list_of_tuple.py*** 
 ```python
 fruits = [
     ('benana',4),
@@ -59,7 +57,7 @@ fruits = [
 ]
 
 print("> fruits :");
-print(sorted(fruits))
+print(fruits)
 
 print("> sorted(fruits) : ");
 print(sorted(fruits));
@@ -68,7 +66,7 @@ print(sorted(fruits));
 output : 
 ```bash
 > fruits :
-[('apple', 10), ('benana', 4), ('guava', 2), ('mango', 21)]
+[('benana', 4), ('apple', 10), ('mango', 21), ('guava', 2)]
 > sorted(fruits) : 
 [('apple', 10), ('benana', 4), ('guava', 2), ('mango', 21)]
 ```
