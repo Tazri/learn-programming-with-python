@@ -160,20 +160,21 @@ Hello, Anonymous!
 
 
 **Assignment Operator :**
-| operator | Magic Method Name             |
-|----------|-------------------------------|
-| -=       | \_\_isub__(self,right_operand)  |
-| +=       | \_\_iadd__(self,right_operand)  |
-| *=       | \_\_imul__(self,right_operand)  |
-| /=       | \_\_idiv__(self,right_operand)  |
-| //=       | \_\_ifloordiv__(self,right_operand)  |
-| %=       | \_\_imod__(self,right_operand)  |
-| **=       | \_\_ipow__(self,right_operand)  |
-| >>=       | \_\_irshift__(self,right_operand)  |
-| <<=       | \_\_ilshift__(self,right_operand)  |
-| &=       | \_\_iand__(self,right_operand)  |
-| !=       | \_\_ior__(self,right_operand)  |
-| ^=       | \_\_ixor__(self,right_operand)  |
+| operator | Magic Method Name                  |
+|----------|------------------------------------|
+| -=       | \_\_isub__(self,right_operand)     |
+| +=       | \_\_iadd__(self,right_operand)     |
+| *=       | \_\_imul__(self,right_operand)     |
+| /=       | \_\_idiv__(self,right_operand)     |
+| //=      | \_\_ifloordiv__(self,right_operand)|
+| %=       | \_\_imod__(self,right_operand)     |
+| **=      | \_\_ipow__(self,right_operand)     |
+| >>=      | \_\_irshift__(self,right_operand)  |
+| <<=      | \_\_ilshift__(self,right_operand)  |
+| &=       | \_\_iand__(self,right_operand)     |
+| !=       | \_\_ior__(self,right_operand)      |
+| ^=       | \_\_ixor__(self,right_operand)     |
+| \[\]     | \_\_getitem__(self,key)            |
 
 **unary operator :**
 | operator | Magic Method Name      |

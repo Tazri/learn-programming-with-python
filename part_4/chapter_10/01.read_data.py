@@ -17,3 +17,15 @@ while(row):
 cur.close();
 con.commit();
 con.close();
+
+'''
+output : 
+row -> ('Computer Programming Part 1', 'Tamim Shahriar', 260.0)
+row -> ('Computer programming part 2', 'Tamim Shariar', 344.0)
+row -> ('Computer Programming Part 3', 'Tamim Shariar', 322.0)
+row -> ('Programming Exercise', 'Tamim Rafi', 140.0)
+row -> ('Computer Programming Part 1', 'Tamim Shahriar', 260.0)
+row -> ('Computer programming part 2', 'Tamim Shariar', 344.0)
+row -> ('Computer Programming Part 3', 'Tamim Shariar', 322.0)
+row -> ('Programming Exercise', 'Tamim Rafi', 140.0)
+'''
