@@ -342,7 +342,8 @@ def get_average(temp_list:list,k:int = 100)->list:
 ```
 
 ### Problem Kth largest number
-Here I solve a problem using heapq.
+The problem is that  :
+Take a array and a number which is k. Return the k'th largest number from a array. Here I solve a problem using heapq.
 
 #### [Here solve the kth largest problem >](./markdown/kth_largest_number.md)
 
