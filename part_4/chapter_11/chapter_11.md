@@ -8,6 +8,8 @@ Table of content of this chapter :
 - **[Counter](#counter)**
 - **[Angram Problem](#anagram-problem)**
 - **[Deque](#deque)**
+- **[heapq](#heapq)**
+
 
 <hr />
 
@@ -320,6 +322,15 @@ def get_average(temp_list:list,k:int = 100)->list:
 
 ## Heapq
 
+**heapq** is a python built-in package use for create heap. Below some heapq method : 
+
+| method name | description                                                             |
+|-------------|-------------------------------------------------------------------------|
+| .heapify(li:list) | get a list and make it min heap                                   |
+| .heappush(h:list,item) | get a list and number, insert the number in list follow min heap rule |
+| .heappop(h:list,item) | remove root data and heapify it again                         |
+
+**Here example of heapify :**
 ```bash
 >>> import heapq
 >>> 
@@ -329,7 +340,7 @@ def get_average(temp_list:list,k:int = 100)->list:
 [1, 3, 2, 5, 3, 4]
 >>> 
 ```
-
+**Here example of heappush :**
 ```bash
 >>> li = [3, 5, 2, 1, 3, 4]
 >>> h = [];
@@ -392,3 +403,90 @@ li : [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 '''
 ```
 
+### Making Priority Queue
+It possible to push item in heap by **heapq.heappush()** function with priority. Here example : 
+
+```py
+import heapq as heap
+
+h = [];
+
+# data with priorityqueue
+datas = [
+    (3,"write code"),
+    (2,"write tests"),
+    (1,"create specification"),
+    (4,"release product")
+];
+
+print("Data inserting in priority queue...............");
+print("....");
+for data in datas:
+    # push the with priority
+    heap.heappush(h,data);
+
+
+
+print("Data Pop Out from Priority Queue : ");
+while h:
+    data = heap.heappop(h);
+    print(f"> data : {data}");
+
+'''
+Data inserting in priority queue...............
+....
+Data Pop Out from Priority Queue : 
+> data : (1, 'create specification')
+> data : (2, 'write tests')
+> data : (3, 'write code')
+> data : (4, 'release product')
+'''
+```
+
+Example of priority queue with **PriorityQueue** Class from **queue** package : 
+```py
+from queue import PriorityQueue;
+
+pq = PriorityQueue();
+
+# create random priority data
+datas = [
+    (3,"write code"),
+    (2,"write tests"),
+    (1,"create specification"),
+    (4,"release product")
+];
+
+'''
+pq.put() use for insert data.
+pq.get() use for get data.
+pq.qsize() use for know the queue size
+'''
+
+print("> pq.put(data).......");
+print("......");
+for data in datas : 
+    pq.put(data);
+    
+print("\n> pq.get()...........");
+while pq.qsize():
+    print(f"> pq.get() : {pq.get()}");
+
+'''
+ity_queue_package.py 
+> pq.put(data).......
+......
+
+> pq.get()...........
+> pq.get() : (1, 'create specification')
+> pq.get() : (2, 'write tests')
+> pq.get() : (3, 'write code')
+> pq.get() : (4, 'release product')
+'''
+```
+
+<hr />
+<br />
+
+[< Go Back](./../part_4.md)
+--------------------------
