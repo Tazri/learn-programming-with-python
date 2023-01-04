@@ -1,10 +1,11 @@
 import time;
 
-def please_sleep(sec=1.1):
+
+def please_sleep(sec=1.1): # io-bound Task
     print("Sleeping........ for 1.1 sec");
     time.sleep(sec);
 
-def compute_fnc():
+def compute_fnc(): # cpu bound task
     print("Computing..........");
     for x in range(1000000):
         _ = pow(x,123);
