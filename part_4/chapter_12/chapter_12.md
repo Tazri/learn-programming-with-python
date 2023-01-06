@@ -60,3 +60,188 @@ after calling finish :
 time spent : 3.47s
 '''
 ```
+## Create multi threading program
+
+Here the syntax to create multi threading program : 
+```py
+import threading # threding package use for create mutliple thread
+
+# create thread with function
+thread = threading .Tread(target=function_name);
+
+# run the thread
+thread.start()
+
+# join the thread with main join
+thread.join()
+```
+
+Here the example of multi threading : 
+
+```py
+import time
+import threading
+
+def please_sleep(sec=2.2): # i/o bound task
+    print(".......sleep :)");
+    time.sleep(sec);
+
+# counting the time
+t1 = time.perf_counter();
+
+# create five thread with 'please_sleep' function
+thread_list = [threading.Thread(target=please_sleep) for _ in range(5)];
+
+# start the thread
+for thread in thread_list:
+    thread.start();
+
+# joint the thread with main thread
+for thread in thread_list:
+    thread.join();
+
+t2 = time.perf_counter();
+time_spent = t2 - t1;
+
+print(f'\n> Time Spent : {round(time_spent,2)}');
+
+'''
+.......sleep :)
+.......sleep :)
+.......sleep :)
+.......sleep :)
+.......sleep :)
+
+> Time Spent : 2.2
+'''
+```
+
+***try to run a function which is **cpu bound task** with multithreadin :***
+
+```py
+import time
+import threading
+
+def compute_fnc(): # cpu bound task
+    print("Computing..........");
+    for x in range(1000000):
+        _ = pow(x,123);
+    print(".....Compute finished.\n");
+
+# counting time
+t1 = time.perf_counter();
+
+# create 5 thread for 'compute_func'
+thread_list = [threading.Thread(target=compute_fnc) for _ in range(5)];
+
+# start the thread
+for thread in thread_list:
+    thread.start();
+
+# join the thread with main thread
+for thread in thread_list:
+    thread.join();
+
+# calculate total time spent
+t2 = time.perf_counter();
+time_spent = round(t2-t1,2);
+
+print(f"\n\n> Total Time spent : {time_spent}");
+
+'''
+output : 
+Computing..........
+Computing..........
+Computing..........
+Computing..........
+Computing..........
+.....Compute finished.
+
+.....Compute finished.
+
+.....Compute finished.
+
+.....Compute finished.
+
+.....Compute finished.
+
+
+
+> Total Time spent : 17.79
+'''
+```
+
+<hr />
+
+## Create multi processing program
+
+Here the syntax to create multi processing program : 
+```py
+import multiprocessing
+process = multiproessing.Process(target=function_name);
+
+# start the process
+process.start();
+
+# waiting for finis the process
+process.join();
+```
+
+Here the example of multi processing program in python : 
+
+```py
+import time
+import multiprocessing
+
+def compute_fnc(): # cpu bound task
+    print("Computing..........");
+    for x in range(1000000):
+        _ = pow(x,123);
+    print(".....Compute finished.\n");
+
+# counting time
+t1 = time.perf_counter();
+
+# create 5 process of 'compute_fnc()'
+process_list = [
+    multiprocessing.Process(target=compute_fnc) for _ in range(5)
+]
+
+for process in process_list:
+    process.start();
+
+for process in process_list:
+    process.join();
+
+t2 = time.perf_counter();
+
+time_spent = round(t2-t1,2);
+
+print("\n\n> Time Spent :",time_spent);
+
+'''
+Computing..........
+Computing..........
+Computing..........
+Computing..........
+Computing..........
+.....Compute finished.
+
+.....Compute finished.
+
+.....Compute finished.
+
+.....Compute finished.
+
+.....Compute finished.
+
+
+
+> Time Spent : 8.86
+'''
+```
+
+<hr />
+
+[< Go Back](./../part_4.md)
+---------------------------
