@@ -5,7 +5,7 @@ Learn Programming With Python
 
 This repository create for complate document on 3 part of "পাইথন দিয়ে প্রোগ্রামিং শিখা" books. I already complate this documentation 1 year ago. Just I upload it day by day. 
 
-![Learn Programming With Programming](./asset/book_cover/learn_programming_with_python.png)
+![Learn Programming With Programming](./asset/book_cover/learn_programming_with_python.jpg)
 
 Here all part of this book : 
 ----------------------------
